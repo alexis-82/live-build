@@ -1,0 +1,21 @@
+#!/bin/bash
+lb config \
+--mode devuan \
+--system live \
+\ --interactive shell \
+\--chroot-filesystem squashfs \
+\--parent-mirror-bootstrap http://packages.devuan.org/merged/ \
+\--parent-mirror-binary http://packages.devuan.org/merged/ \
+\--mirror-bootstrap http://packages.devuan.org/merged/ \
+\--mirror-binary http://packages.devuan.org/merged/ \
+--debian-installer live \
+--architecture i386 \
+\--archive-areas "main contrib non-free" \
+\--security true \
+\--updates true \
+--binary-image iso-hybrid \
+\--apt-options "--force-yes --yes" \
+\--apt-recommends false \
+--bootappend-live "boot=live persistence persistence-encryption=luks locales=it_IT.UTF-8 keyboard-layouts=it username=utente hostname=D8" \
+--memtest memtest86+ \
+
